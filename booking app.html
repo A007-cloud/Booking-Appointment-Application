@@ -33,10 +33,10 @@
                 email: email,
                 phonenumber: phonenumber
             }
-            axios.post("https://crudcrud.com/api/c251f8cfab844b9186ef7246a996b5b8/appointmentData", obj)
-            .then((respone) => {
-                showNewUserOnScreen(respone.data)
-                console.log(respone)
+            axios.post("https://crudcrud.com/api/7efe488082b9461f995f765c6b7de5d0/appointmentData", obj)
+            .then((response) => {
+                showNewUserOnScreen(response.data)
+                console.log(response)
             })
             .catch((err) => {
                 console.log(err)
@@ -47,15 +47,27 @@
             // showNewUserOnScreen(obj)
         }
         window.addEventListener('DOMContentLoaded', (event) => {
-            const localStorageObj = localStorage;
-            const localstoragekeys = Object.keys(localStorageObj);
+            axios.get("https://crudcrud.com/api/7efe488082b9461f995f765c6b7de5d0/appointmentData")
+            .then((response) =>{
+                console.log(response)
 
-            for(var i =0; i< localstoragekeys.length; i++){
-                const key = localstoragekeys[i]
-                const userDetailsString = localStorageObj[key];
-                const userDetailsObj = JSON.parse(userDetailsString);
-                showNewUserOnScreen(userDetailsObj);
-            }
+                for(var i=0; i < response.data.length; i++){
+                    showNewUserOnScreen(response.data[i])
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+
+            // const localStorageObj = localStorage;
+            // const localstoragekeys = Object.keys(localStorageObj);
+
+            // for(var i =0; i< localstoragekeys.length; i++){
+            //     const key = localstoragekeys[i]
+            //     const userDetailsString = localStorageObj[key];
+            //     const userDetailsObj = JSON.parse(userDetailsString);
+            //     showNewUserOnScreen(userDetailsObj);
+            // }
 
             })
 
