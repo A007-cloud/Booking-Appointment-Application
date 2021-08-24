@@ -5,8 +5,8 @@ submitBtn.addEventListener('click',onsubmit);
 
 // const dt=axios.get(
 //     "https://crudcrud.com/api/f906d53565df4af68d1d25dd6855bdfb/unicorns"
-//     //     {"name":"alipta",
-//     // "emailId":"alipta@345.com"
+//     //     {"name":"aditya",
+//     // "emailId":"aditya@123.com"
 //     //     }
     
 //     ).then(data=>console.log(data));
@@ -50,10 +50,20 @@ axios.post("https://crudcrud.com/api/6dc0581313e14e7a969cd27d58ad12f9/appointmen
     document.body.innerHTML=document.body.innerHTML+"<h4>Something went wrong</h4>"
     console.log(err)
 })
-            //localStorage.setItem(myObj.email,JSON.stringify(myObj));
+
+
+// Clear fields
+
+nameInput.value = '';
+emailInput.value = '';
+
+
+//localStorage.setItem(myObj.email,JSON.stringify(myObj));
        
-            // showUserOnScreen(myObj);
+// showUserOnScreen(myObj);
+
 }
+
 function showUserOnScreen(user){
 // user={
 //     _id:'',
@@ -72,6 +82,7 @@ function showUserOnScreen(user){
 
     parentNode.innerHTML=parentNode.innerHTML+childHTML;
 }
+
 function removeUserFromScreen(userId){
     const parentNode=document.getElementById('listOfPeople');
     const childNodeDeleted=document.getElementById(userId);
@@ -79,6 +90,7 @@ function removeUserFromScreen(userId){
         parentNode.removeChild(childNodeDeleted);
     }
 }
+
 function deleteUser(userId){
     axios.delete(`https://crudcrud.com/api/6dc0581313e14e7a969cd27d58ad12f9/appointmentData/${userId}`)
         .then((response) => {
@@ -91,6 +103,7 @@ function deleteUser(userId){
     // localStorage.removeItem(emailId);
     // removeUserFromScreen(emailId);
 }
+
 function editUserDetails(emailId,name,userId){
   
 emailInput.value=emailId;
