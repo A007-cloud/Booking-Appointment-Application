@@ -13,7 +13,7 @@ submitBtn.addEventListener('click',onsubmit);
     
 
 document.addEventListener("DOMContentLoaded", () => {
-axios.get("https://crudcrud.com/api/25aca4e1dad6449f8b22e96ce9680b2e/appointmentData")
+axios.get("https://crudcrud.com/api/6dc0581313e14e7a969cd27d58ad12f9/appointmentData")
 .then((response)=>{
     console.log(response)
 
@@ -41,7 +41,7 @@ function onsubmit(e){
                 name:nameInput.value,
                email:emailInput.value
             };
-axios.post("https://crudcrud.com/api/25aca4e1dad6449f8b22e96ce9680b2e/appointmentData",obj)
+axios.post("https://crudcrud.com/api/6dc0581313e14e7a969cd27d58ad12f9/appointmentData",obj)
 .then((response)=>{
     showUserOnScreen(response.data);
     console.log(response)
@@ -80,7 +80,7 @@ function removeUserFromScreen(userId){
     }
 }
 function deleteUser(userId){
-    axios.delete(`https://crudcrud.com/api/25aca4e1dad6449f8b22e96ce9680b2e/appointmentData/${userId}`)
+    axios.delete(`https://crudcrud.com/api/6dc0581313e14e7a969cd27d58ad12f9/appointmentData/${userId}`)
         .then((response) => {
             removeUserFromScreen(userId)
         })
